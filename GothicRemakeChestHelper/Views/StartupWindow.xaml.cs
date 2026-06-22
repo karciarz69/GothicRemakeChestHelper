@@ -9,6 +9,12 @@ namespace GothicRemakeChestHelper.Views
         {
             InitializeComponent();
             DataContext = new StartupWindowViewModel();
+            try
+            {
+                this.Icon = System.Windows.Media.Imaging.BitmapFrame.Create(
+                    new System.Uri("pack://application:,,,/ikona.ico", System.UriKind.Absolute));
+            }
+            catch { }
         }
 
         private void next_button_click(object sender, RoutedEventArgs e)

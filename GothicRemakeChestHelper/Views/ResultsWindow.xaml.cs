@@ -14,6 +14,12 @@ namespace GothicRemakeChestHelper.Views
             InitializeComponent();
             _passed_steps = steps;
             DataContext = new ResultsWindowViewModel(steps);
+            try
+            {
+                this.Icon = System.Windows.Media.Imaging.BitmapFrame.Create(
+                    new System.Uri("pack://application:,,,/ikona.ico", System.UriKind.Absolute));
+            }
+            catch { }
         }
 
         private void close_button_click(object sender, RoutedEventArgs e)
