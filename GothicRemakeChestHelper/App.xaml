@@ -1,0 +1,107 @@
+﻿<Application x:Class="GothicRemakeChestHelper.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views/StartupWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="bg_main" Color="#18181A"/>
+        <SolidColorBrush x:Key="bg_surface" Color="#27272A"/>
+        <SolidColorBrush x:Key="bg_hover" Color="#3F3F46"/>
+        <SolidColorBrush x:Key="accent_color" Color="#0078D4"/>
+        <SolidColorBrush x:Key="accent_hover" Color="#106EBE"/>
+        <SolidColorBrush x:Key="text_primary" Color="#F4F4F5"/>
+        <SolidColorBrush x:Key="text_secondary" Color="#A1A1AA"/>
+        <SolidColorBrush x:Key="border_color" Color="#3F3F46"/>
+
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="{StaticResource bg_main}"/>
+            <Setter Property="Foreground" Value="{StaticResource text_primary}"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource text_primary}"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource bg_surface}"/>
+            <Setter Property="Foreground" Value="{StaticResource text_primary}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="btn_border" Background="{TemplateBinding Background}" CornerRadius="6" Padding="15,8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="btn_border" Property="Background" Value="{StaticResource accent_color}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="btn_border" Property="Background" Value="{StaticResource accent_hover}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="{StaticResource bg_surface}"/>
+            <Setter Property="Foreground" Value="{StaticResource text_primary}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource border_color}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="{StaticResource bg_surface}"/>
+            <Setter Property="Foreground" Value="{StaticResource text_primary}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border x:Name="item_border" Background="{TemplateBinding Background}" Padding="10,8" CornerRadius="4" Margin="2">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="item_border" Property="Background" Value="{StaticResource bg_hover}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="{StaticResource bg_main}"/>
+            <Setter Property="Foreground" Value="{StaticResource text_primary}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource border_color}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border x:Name="list_border" Background="Transparent" CornerRadius="6" Padding="10,5" Margin="2,2">
+                                        <ContentPresenter/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="list_border" Property="Background" Value="{StaticResource bg_surface}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>
